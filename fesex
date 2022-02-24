@@ -1,0 +1,245 @@
+local plr = game.Players.LocalPlayer
+local char = game.Players.LocalPlayer.Character
+local srv = game:GetService('RunService')
+local ct = {}
+local te = table.insert
+
+HumanDied=false
+
+for i,v in next, char:GetDescendants() do 
+if v:IsA('BasePart') then
+te(ct,srv.Heartbeat:Connect(function()
+v.Velocity = Vector3.new(-30,0,0)
+sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge)
+sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",10000)
+end))
+end
+end
+
+    
+_G.Animated = true
+_G.Netless = Vector3.new(-30,0,0)
+_G.Fling = Vector3.new(9e9,9e9,9e9)
+
+
+
+
+
+wait(.1)
+local function Align(P0,P1,Position,Rotate)
+local AlignPosition = Instance.new("AlignPosition", P0)
+local AlignOrientation = Instance.new("AlignOrientation", P0)
+local Attachment1 = Instance.new("Attachment", P0)
+local Attachment2 = Instance.new("Attachment", P1)
+-- Main Attach Thingy:
+AlignPosition.Attachment0,AlignPosition.Attachment1 = Attachment1,Attachment2 -- Shortcut
+AlignOrientation.Attachment0,AlignOrientation.Attachment1 = Attachment1,Attachment2 -- Shortcut
+-- Properties:
+AlignPosition.RigidityEnabled = true
+AlignOrientation.RigidityEnabled = true
+-- Rotate/Position
+Attachment1.Position = Position or Vector3.new(0,0,0)
+Attachment1.Rotation = Rotate or Vector3.new(0,0,0)
+end
+
+-- Main (R6)
+
+local Character = workspace[game.Players.LocalPlayer.Name]
+local Humanoid = Character.Humanoid
+Humanoid:ChangeState("Physics")
+local Hat1 = Character:WaitForChild("Pal Hair").Handle
+local Hat2 = Character:WaitForChild("LavanderHair").Handle
+local Hat3 = Character:WaitForChild("Kate Hair").Handle
+local Hat4 = Character:WaitForChild("Hat1").Handle
+local Hat5 = Character:WaitForChild("SeeMonkey").Handle
+local Hat6 = Character:WaitForChild("Pink Hair").Handle
+local Hat7 = Character:WaitForChild("Robloxclassicred").Handle
+
+Hat1.Mesh:Remove()
+Hat1.AccessoryWeld:Remove()
+Hat2.Mesh:Remove()
+Hat2.AccessoryWeld:Remove()
+Hat3.Mesh:Remove()
+Hat3.AccessoryWeld:Remove()
+Hat4.Mesh:Remove()
+Hat4.AccessoryWeld:Remove()
+Hat5.Mesh:Remove()
+Hat5.AccessoryWeld:Remove()
+Hat6.AccessoryWeld:Remove()
+Hat7.Mesh:Remove()
+Hat7.AccessoryWeld:Remove()
+wait(.1)
+Character.Archivable = true
+Humanoid:ChangeState("Physics")
+local Reanim = Character:Clone()
+Reanim.Parent = Character
+Reanim.Name = "OofHub"
+
+for i,v in pairs(Reanim:GetChildren()) do 
+	if v:IsA("BasePart") then v.Transparency = 1
+		elseif v:IsA("Accessory") then v:Destroy()
+	end
+end
+
+
+--Noclip
+game:GetService("RunService").Stepped:Connect(function()
+    Humanoid.Died:Connect(function()
+        return 
+    end)
+    for i,v in pairs(Character:GetChildren()) do
+        if v:IsA("BasePart") then
+            v.CanCollide = false
+        end
+    end
+end)
+--Aligning
+--local Name2 = Character:WaitForChild("Pal Hair")
+
+Character["Right Arm"].Transparency = 0
+
+
+Character.Torso['Right Shoulder']:Destroy()
+Character.Torso['Left Shoulder']:Destroy()
+Character.Torso['Right Hip']:Destroy()
+Character.Torso['Left Hip']:Destroy()
+Character.HumanoidRootPart:Destroy()
+function InstantAttach(P0)
+    Align(Character[P0],Reanim[P0])
+end
+InstantAttach("Right Arm")
+InstantAttach("Left Arm")
+InstantAttach("Right Leg")
+InstantAttach("Left Leg")
+InstantAttach("Torso")
+Align(Hat1,Reanim['Torso'])
+Align(Hat2,Reanim['Torso'])
+Align(Hat3,Reanim['Torso'])
+Align(Hat4,Reanim['Torso'])
+Align(Hat5,Reanim['Torso'])
+Align(Hat6,Reanim['Torso'])
+Align(Hat7,Reanim['Torso'])
+
+Hat1.Attachment.Rotation = Vector3.new(150,0,-10)
+Hat1.Attachment.Position = Vector3.new(-0.5,-1.5,0)
+Hat2.Attachment.Rotation = Vector3.new(150,0,10)
+Hat2.Attachment.Position = Vector3.new(0.5,-1.5,0)
+Hat3.Attachment.Rotation = Vector3.new(180,0,0)
+Hat3.Attachment.Position = Vector3.new(1.5,0.8,-1)
+Hat4.Attachment.Rotation = Vector3.new(180,0,0)
+Hat4.Attachment.Position = Vector3.new(-1.5,0.8,-1)
+Hat5.Attachment.Rotation = Vector3.new(110,0,0)
+Hat5.Attachment.Position = Vector3.new(0,-1.5,-1)
+Hat6.Attachment.Rotation = Vector3.new(0,180,0)
+Hat6.Attachment.Position = Vector3.new(0,-2.5,-2)
+Hat7.Attachment.Rotation = Vector3.new(0,90,0)
+Hat7.Attachment.Position = Vector3.new(1.3,-0.7,0)
+
+mousechanger=game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(k)
+if k == 'q' then-- first mode
+Hat1.Attachment.Rotation = Vector3.new(150,0,-10)
+Hat1.Attachment.Position = Vector3.new(-0.5,-1.5,0)
+Hat2.Attachment.Rotation = Vector3.new(150,0,10)
+Hat2.Attachment.Position = Vector3.new(0.5,-1.5,0)
+Hat3.Attachment.Rotation = Vector3.new(180,0,0)
+Hat3.Attachment.Position = Vector3.new(1.5,0.8,-1)
+Hat4.Attachment.Rotation = Vector3.new(180,0,0)
+Hat4.Attachment.Position = Vector3.new(-1.5,0.8,-1)
+Hat5.Attachment.Rotation = Vector3.new(110,0,0)
+Hat5.Attachment.Position = Vector3.new(0,-1.5,-1)
+Hat6.Attachment.Rotation = Vector3.new(0,180,0)
+Hat6.Attachment.Position = Vector3.new(0,-2.5,-2)
+Hat7.Attachment.Rotation = Vector3.new(0,90,0)
+Hat7.Attachment.Position = Vector3.new(1.3,-0.7,0)
+elseif k == 'e' then-- second mode
+Hat1.Attachment.Rotation = Vector3.new(150,0,-10)
+Hat1.Attachment.Position = Vector3.new(-0.5,-1.8,0.5)
+Hat2.Attachment.Rotation = Vector3.new(150,0,10)
+Hat2.Attachment.Position = Vector3.new(0.5,-1.8,0.5)
+Hat3.Attachment.Rotation = Vector3.new(200,0,0)
+Hat3.Attachment.Position = Vector3.new(1.5,0.8,-1)
+Hat4.Attachment.Rotation = Vector3.new(200,0,0)
+Hat4.Attachment.Position = Vector3.new(-1.5,0.8,-1)
+Hat5.Attachment.Rotation = Vector3.new(130,0,0)
+Hat5.Attachment.Position = Vector3.new(0,-1.5,-1)
+Hat6.Attachment.Rotation = Vector3.new(0,180,0)
+Hat6.Attachment.Position = Vector3.new(0,-2.,-2.5)
+Hat7.Attachment.Rotation = Vector3.new(5,90,0)
+Hat7.Attachment.Position = Vector3.new(1.7,-0.3,0)
+end
+end)
+
+Character['Left Leg'].Velocity = _G.Netless
+Reanim['Left Arm'].Velocity = _G.Netless
+Reanim['Right Leg'].Velocity = _G.Netless
+Reanim['Right Arm'].Velocity = _G.Netless
+Reanim['Head'].Velocity = _G.Netless
+Reanim.Torso.Velocity = _G.Netless
+--Character["Left Leg"].Name = "Bullet"
+function Pos(part, parent, p)
+Instance.new("Attachment",part)
+Instance.new("AlignPosition",part)
+Instance.new("Attachment",parent)
+part.Attachment.Name = part.Name
+parent.Attachment.Name = part.Name
+part.AlignPosition.Attachment0 = part[part.Name]
+part.AlignPosition.Attachment1 = parent[part.Name]
+parent[part.Name].Position = p or Vector3.new()
+part.AlignPosition.MaxForce = 999999999*10
+part.AlignPosition.MaxVelocity = math.huge
+part.AlignPosition.ReactionForceEnabled = false
+part.AlignPosition.Responsiveness = math.huge
+part.AlignPosition.RigidityEnabled = false
+end
+
+--Pos(Character['Bullet'],Reanim.Torso)
+
+
+function flinger(p)
+f=Instance.new('BodyAngularVelocity',p)
+f.AngularVelocity = Vector3.new(9e9*10,9e9*10,9e9*10)
+f.MaxTorque=Vector3.new(9e9*10,9e9*10,9e9*10)
+end
+
+function fix(p)
+fixer=Instance.new('BodyPosition',p)
+fixer.Name='BP'
+fixer.P=9e9
+fixer.D=9e9
+fixer.MaxForce=Vector3.new(99999,99999,99999)
+end
+
+--flinger(Character['Bullet'])
+
+
+
+m=plr:GetMouse()
+
+local click
+
+--[[te(ct,srv.Heartbeat:Connect(function()
+if click == true then
+Character.Bullet.Position=m.Hit.p
+elseif click == false then
+Character.Bullet.Position=Character.Torso.Position
+end
+end))
+
+te(ct,m.Button1Down:Connect(function()
+click=true
+end))
+
+te(ct,m.Button1Up:Connect(function()
+click=false
+end))]]--
+
+--Death Trigger
+game.Players.LocalPlayer.Character = Reanim
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+Character.Humanoid:ChangeState(15)
+game.Players.LocalPlayer.Character = workspace[game.Players.LocalPlayer.Name]
+_G.Animated = false
+Reanim:Destroy()
+end)
+workspace:FindFirstChildOfClass("Camera").CameraSubject = Reanim.Humanoid
+

@@ -131,7 +131,10 @@ Align(Character['Pal Hair'].Handle,Reanim['Torso'])
 Align(Character['LavanderHair'].Handle,Reanim['Torso'])
 Align(Hand1,Reanim['Left Arm'])
 Align(Hand2,Reanim['Right Arm'])
+
 Align(Character['Meshes/dragonblade_meshAccessory'].Handle,Reanim['Meshes/dragonblade_meshAccessory'].Handle)
+
+
 
 Hand1.Attachment.Position = Vector3.new(0,1,0)
 Hand2.Attachment.Position = Vector3.new(0,1,0)
@@ -149,7 +152,6 @@ HatPack1.Velocity = _G.Netless
 HatPack2.Velocity = _G.Netless
 Reanim['Left Leg'].Velocity = _G.Netless
 Reanim['Right Leg'].Velocity = _G.Netless
-Reanim['Right Arm'].Velocity = _G.Netless
 Reanim['Head'].Velocity = _G.Netless
 Reanim.Torso.Velocity = _G.Netless
 Character["Left Arm"].Name = "Bullet"
@@ -170,8 +172,9 @@ part.AlignPosition.RigidityEnabled = false
 end
 
 Pos(Character['Bullet'],Reanim['Meshes/dragonblade_meshAccessory'].Handle)
+--Pos(Character['Right Arm'],Character.Tophat.Handle)
 
-Character['Right Arm']:Remove()
+
 
 function flinger(p)
 f=Instance.new('BodyAngularVelocity',p)
@@ -188,6 +191,7 @@ fixer.MaxForce=Vector3.new(99999,99999,99999)
 end
 
 flinger(Character['Bullet'])
+flinger(Character['Right Arm'])
 
 --Death Trigger
 game.Players.LocalPlayer.Character = Reanim
@@ -199,7 +203,7 @@ Reanim:Destroy()
 end)
 workspace:FindFirstChildOfClass("Camera").CameraSubject = Reanim.Humanoid
 
-
+Character['Right Arm']:Destroy()
 
 IT = Instance.new
 CF = CFrame.new
@@ -266,8 +270,8 @@ Mode='grab1'
 wait(.3)
 Mode='a1'
 elseif k == 'z' and Mode == 'dead' then-- first mode
-Mode='1'
-elseif k == 'x' and Mode == '1' then-- second mode
+Mode='a1'
+elseif k == 'x' and Mode == 'a1' then-- second mode
 Mode='dead'
 elseif k == 'v' and Mode == '1' then-- third mode
 Mode='vent1'
@@ -284,16 +288,14 @@ local plr = game.Players.LocalPlayer
 plr:GetMouse().Button1Down:Connect(function()
     if Mode == '1' then
         Mode='slash1'
-    end
-end)
-plr:GetMouse().Button1Up:Connect(function()
-    if Mode == 'slash1' then
-        wait(.2)
+        wait(.3)
         Mode='slash2'
         wait(.3)
         Mode='1'
     end
 end)
+
+
 
 
 coroutine.wrap(function()
@@ -585,3 +587,4 @@ end
 srv.RenderStepped:Wait()
 end
 end)()
+--Created using Nexo Animator

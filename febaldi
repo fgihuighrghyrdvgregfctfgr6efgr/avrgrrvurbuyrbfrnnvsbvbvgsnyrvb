@@ -61,7 +61,7 @@ HumanDied=false
 for i,v in next, char:GetDescendants() do 
 if v:IsA('BasePart') then
 te(ct,srv.Heartbeat:Connect(function()
-v.Velocity = Vector3.new(0,-30.5,0)
+v.Velocity = Vector3.new(-30,0,0)
 sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge)
 sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
 end))
@@ -70,7 +70,7 @@ end
 
     
 _G.Animated = true
-_G.Netless = Vector3.new(0,-30.5,0)
+_G.Netless = Vector3.new(-30,0,0)
 _G.Fling = Vector3.new(9e9,9e9,9e9)
 
 
@@ -172,7 +172,7 @@ hat4.Handle.AccessoryWeld:Remove()
 hat5.Handle.AccessoryWeld:Remove()
 Character['Backuette'].Handle.AccessoryWeld:Remove()
 game.Players.LocalPlayer.Character['Pal Hair'].Handle.AccessoryWeld:Remove()
-Align(Character['Kate Hair'].Handle,Reanim['Left Leg'])
+Align(Character['Kate Hair'].Handle,Reanim['Right Arm'])
 Hat.Attachment.Rotation = Vector3.new(90,0,0)
 Align(Character['Hatz'].Handle,Reanim['Hatz'].Handle)
 Align(Character['Hat2'].Handle,Reanim['Hat2'].Handle)
@@ -184,10 +184,10 @@ Align(Character['Pal Hair'].Handle,Reanim['Pal Hair'].Handle)
 Character['Pal Hair'].Handle.Velocity = _G.Netless
 Reanim['Left Arm'].Velocity = _G.Netless
 Reanim['Right Leg'].Velocity = _G.Netless
-Reanim['Right Arm'].Velocity = _G.Netless
+Reanim['Left Leg'].Velocity = _G.Netless
 Reanim['Head'].Velocity = _G.Netless
 Reanim.Torso.Velocity = _G.Netless
-Character["Left Leg"].Name = "Bullet"
+Character["Right Arm"].Name = "Bullet"
 function Pos(part, parent, p)
 Instance.new("Attachment",part)
 Instance.new("AlignPosition",part)

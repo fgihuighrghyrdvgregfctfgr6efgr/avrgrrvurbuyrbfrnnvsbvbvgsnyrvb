@@ -140,7 +140,7 @@ InstantAttach("Left Arm")
 InstantAttach("Right Leg")
 InstantAttach("Left Leg")
 InstantAttach("Torso")
-Align(Character['Pal Hair'].Handle,Reanim['Left Leg'])
+Align(Character['Pal Hair'].Handle,Reanim['Right Arm'])
 Align(HammerHandle,Reanim['Right Arm'])
 Align(HammerHead,Reanim['Right Arm'])
 
@@ -154,10 +154,10 @@ HammerHead.Attachment.Position = Vector3.new(-5,0,-1)
 Character['Pal Hair'].Handle.Velocity = _G.Netless
 Reanim['Left Arm'].Velocity = _G.Netless
 Reanim['Right Leg'].Velocity = _G.Netless
-Reanim['Right Arm'].Velocity = _G.Netless
+Reanim['Left Leg'].Velocity = _G.Netless
 Reanim['Head'].Velocity = _G.Netless
 Reanim.Torso.Velocity = _G.Netless
-Character["Left Leg"].Name = "Bullet"
+Character["Right Arm"].Name = "Bullet"
 function Pos(part, parent, p)
 Instance.new("Attachment",part)
 Instance.new("AlignPosition",part)
@@ -297,12 +297,12 @@ end)
 local plr = game.Players.LocalPlayer
 plr:GetMouse().Button1Down:Connect(function()
     Mode='2'
-end)
-plr:GetMouse().Button1Up:Connect(function()
+    wait(.4)
     Mode='3'
-    wait(.3)
+    wait(.2)
     Mode='1'
 end)
+
 
 
 coroutine.wrap(function()

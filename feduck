@@ -1,7 +1,7 @@
 
 HumanDied = false
 _G.ClickFling=false
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/XeneonPlays/Nexo/main/NexoPD'),true))()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/someunknowndude/Nexo/main/NexoPD'),true))()
 
 IT = Instance.new
 CF = CFrame.new

@@ -29,7 +29,7 @@ HumanDied=false
 for i,v in next, char:GetDescendants() do 
 if v:IsA('BasePart') then
 te(ct,srv.Heartbeat:Connect(function()
-v.Velocity = Vector3.new(-30,0,0)
+v.Velocity = Vector3.new(-35,0,0)
 sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge)
 sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",10000)
 end))
@@ -38,7 +38,7 @@ end
 
     
 _G.Animated = true
-_G.Netless = Vector3.new(0,-30.5,0)
+_G.Netless = Vector3.new(0,-35,0)
 _G.Fling = Vector3.new(9e9,9e9,9e9)
 
 
